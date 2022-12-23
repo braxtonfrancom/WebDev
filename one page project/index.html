@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header section -->
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="#hero"><h1><span>B</span>raxton <span>F</span>rancom</h1></a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger"><div class="bar"></div></div>
+                    <ul>
+                        <li><a href="#hero" data-after="Home">Home</a></li>
+                        <li><a href="#services"data-after="Service">Services</a></li>
+                        <li><a href="#projects"data-after="Projects">Projects</a></li>
+                        <li><a href="#about"data-after="About">About</a></li>
+                        <li><a href="#contact"data-after="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of header section -->
+
+    <!-- Hero section -->
+    <section id="hero">
+        <div class="hero container">
+            <div>
+                <h1>Hello,<span></span></h1>
+                <h1>My Name is<span></span></h1>
+                <h1>Braxton<span></span></h1>
+
+                <a href="#projects" type="button" class="cta">
+                Portfolio
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <!-- End of hero section -->
+
+<!-- Service section -->
+<section id="services">
+    <div class="services container">
+        <div class="service-top">
+            <h1 class= "section-title">Serv<span>i</span>ces</h1>
+            <p>You have comfort. You don’t have luxury. And don’t tell me that money plays a part. The luxury I advocate has nothing to do with money. It cannot be bought. It is the reward of those who have no fear of discomfort. - Jean Cocteau</p>
+        </div>
+
+        <div class="service-bottom">
+
+            <div class="service-item">
+               <div class="icon"><img src="data:image/png;base64,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"/></div>
+               <h2>Web Design</h2>
+               <p>How we spend our days is, of course, how we spend our lives. - Annie Dillard</p>
+            </div>
+            
+
+            <div class="service-item">
+               <div class="icon"><img src="data:image/png;base64,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"/></div>
+               <h2>Web Design</h2>
+               <p>How we spend our days is, of course, how we spend our lives. - Annie Dillard</p>
+            </div>
+
+
+            <div class="service-item">
+               <div class="icon"><img src="data:image/png;base64,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"/><div>
+               <h2>Web Design</h2>
+               <p>How we spend our days is, of course, how we spend our lives. - Annie Dillard</p>
+            </div>
+            
+
+            <div class="service-item">
+               <div class="icon"><img src="data:image/png;base64,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"/></div>
+               <h2>Web Design</h2>
+               <p>How we spend our days is, of course, how we spend our lives. - Annie Dillard</p>
+            </div>        
+        </div>
+
+    </div>
+</section>
+
+<!-- End of service section -->
+
+    <!-- Projects section -->
+    <section id="projects">
+        <div class="projects container">
+            <div class="projects-header">
+                <h1 class="section-title">Recent <span>Projects</span></h1>
+            </div>
+
+            <div class="all-projects">
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 1</h1>
+                        <h2>Coding is Love</h2>
+                        <p>You can be what you want to be</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="img/clouds_sky_porous_138133_2048x1152.webp" alt="img">
+                    </div>
+                </div>
+            
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 2</h1>
+                        <h2>Bruh project</h2>
+                        <p>You can be what you want to be</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="img/clouds_sky_porous_138133_2048x1152.webp" alt="img">
+                    </div>
+                </div>
+            
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 3</h1>
+                        <h2>Here we go...</h2>
+                        <p>You can be what you want to be</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="img/clouds_sky_porous_138133_2048x1152.webp" alt="img">
+                    </div>
+                </div>
+            
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 4</h1>
+                        <h2>Welp, here's another project</h2>
+                        <p>You can be what you want to be</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="img/clouds_sky_porous_138133_2048x1152.webp" alt="img">
+                    </div>
+                </div>
+            
+
+                <div class="project-item">
+                    <div class="project-info">
+                        <h1>Project 5</h1>
+                        <h2>hmmmmm</h2>
+                        <p>You can be what you want to be</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="img/clouds_sky_porous_138133_2048x1152.webp" alt="img">
+                    </div>
+                </div>
+            
+
+            </div>    
+    </section>
+    <!-- End of projects section -->
+
+    <!-- About section -->
+    <section id="about">
+    <div class="about container">
+        <div class="col-left">
+            <div class="about-img">
+                <img src="img/neck-guy-charles-dion-mcdowell.png" alt="img">
+            </div>
+        </div>      
+        <div class="col-right">
+            <h1 class= "section-title">About <span>me</span></h1>
+            <h2>Front End Developer</h2>
+            <p>Things usually happen around us, not to us. The source of wisdom is whatever is going to happen to us today</p>
+            <a href="#" class="cta">Download Resume</a>
+        </div> 
+    </div>
+    </section>
+
+    <!-- End of about section -->
+
+    <!-- Contact section -->
+    <section id="contact">
+        <div class="contact container">
+            <div><h1 class="section-title">Contact <span>Info</span></h1></div>
+                <div class="contact-items">
+
+                    <div class="contact-item">
+                        <div class="icon"><img src="img/icons8-phone-100.png"/></div>
+                        <div class="contact-info"></div>
+                            <h1>Phone</h1>
+                            <h2>801-842-9156</h2>
+                            <h2>801-766-8650</h2>
+                    
+                </div>
+
+                    <div class="contact-item">
+                        <div class="icon"><img src="img/icons8-email-100.png"/></div>
+                        <div class="contact-info"></div>
+                            <h1>Email</h1>
+                            <h2>bfran@gmail.com </h2>
+                    
+                </div>
+
+                    <div class="contact-item">
+                        <div class="icon"><img src="img/icons8-address-100.png"/></div>
+                        <div class="contact-info"></div>
+                            <h1>Address</h1>
+                            <h2>Lehi, Utah</h2>
+                            <h2>Pitts, Utah</h2>
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <!-- End of contact section -->
+
+    <!-- Footer section-->
+    <section id="footer">
+        <div class="footer-container">
+            <div class="brand"><h1><span>B</span>raxton <span>F</span>rancom</h1></div>
+            <h2>Your Complete Web Solution</h2>
+            <div class="social-icon">
+
+                <div class="social-item">
+                    <a href="#"><img src="img/icons8-instagram-100.png"/></a>
+                </div>
+
+                <div class="social-item">
+                    <a href="#"><img src="img/icons8-facebook-100.png"/></a>
+                </div>
+
+                <div class="social-item">
+                    <a href="#"><img src="img/icons8-twitter-100.png"/></a>
+                </div>
+
+                <div class="social-item">
+                    <a href="#"><img src="img/icons8-linkedin-100.png"/></a>
+                </div>
+
+            </div>
+            <p>Copyright © 2021 Braxton. All rights reserved</p>
+        </div>
+    </section>
+    <!-- End of footer section -->
+    <script src="./app.js"></script>
+</body>
+</html>
+
+
+
+
+<!-- Rewatch  2:58 0of viedo to get hamburger menu to come out-->
