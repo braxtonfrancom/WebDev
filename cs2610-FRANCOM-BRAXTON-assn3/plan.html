@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css" />
+        <title>Software Development Plan</title>
+    </head>
+
+    <body>
+
+        <h1>Software Development Plan</h1>
+
+        <div id="phase0">
+            <h2>Phase 0: Requirements Specification</h2>
+
+            <p>
+                My goal is to build a fully functional calculator using Javascript and Vanilla JS;).
+            </p>
+            <p>
+                I haven't worked with Javascript at all but I am actually really excited to become more familiar with it
+                because it is so common. I think that it will be really cool to convert between HTML and Javascript. Some
+                challenges that I forsee would be getting caught up in the strange syntax of Javascript. I'm hoping that I can
+                learn Javascript with an open mind and not rely too much on my knowledge of other languages.
+            </p>
+        </div>
+
+        <div id="phase1">
+            <h2>Phase 1: System Analysis</h2>
+
+            <p>
+                I will be taking in two number inputs and an operation. I will need to limit the input to numbers, otherwise I will run into
+                errors trying to perform operations on said inputs. The operation will be selected by the user from a dropdown
+                list of predefined operations. I will then evaluate the mathematical expression.
+            </p>
+            <p>
+                My output will be a fully functioning Javascript calculator that will generate the correct output given
+                the user's input values and operation selection.
+            </p>
+            <p>
+                There really won't be any algorithms or formulae used in this program. Just good ol' HTML, CSS, and
+                Javascript.
+            </p>
+        </div>
+
+        <div id="phase2">
+            <h2>Phase 2: Design</h2>
+            <ul>
+                <li>
+                    All of my work will be done in script.js. I will not modify the index.html page.
+                </li>
+
+                <li>
+                    script.py
+                    <ul>
+                        <li>
+                            function calculator()
+                                <p>In this function I will define all HTML elements and assign them their correct names, id's
+                                attributes, and CSS styling.</p>
+                                <p>I will also make a function call to append each time I want to create a new div.</p>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
+                            function append()
+                                <p>In this function I will create a new date object. I will then verify that both of the
+                                inout fields arent blank. If they are not black I will insert a new div that contains the
+                                date object and the equation to calculate. </p>
+                                <p>If one or both of the fields is empty, I will set the background color to red, set the
+                                    textContent of the div to an error message and then insert the new div.</p>
+                                <p>Lastly, I will put an event listener on every new div created. This will make it so that
+                                when any of the divs created is clicked, it will be deleted.</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="phase3">
+            <h2>Phase 3: Implementation</h2>
+
+            <p>
+                I implemented all of the above code and more, as well as made some slight modifications to the CSS starter
+                code to create a functional Javascript calculator.
+            </p>
+            <p>
+                I learned that Javascript is a very powerful tool. I also learned that it has some pretty unique and
+                sometimes funky syntax. It can be quite tricky at times figuring those things out but this project helped
+                me to develop a lot more confidence in my ability to use Javascript.
+            </p>
+        </div>
+
+        <div id="phase4">
+            <h2>Phase 4: Testing and Debugging</h2>
+
+            <h4>Test Case: I tested the operation 4 + 27. </h4>
+            <p>Result: The output was 31. This was the expected output.</p>
+
+            <h4>Test Case: I attempted -2 ** 3.</h4>
+            <p>Result: I received an error message. To fix this I put parethesis around the two operands. This solved the
+            problem and resulted in the correct output.</p>
+
+            <h4>Test Case: I did 4 + 4 which resulted in a new div that displayed '4 + 4 = 8' I then tried clicking the div
+            to delete the message.</h4>
+            <p>Result: The div disappeared as it should without any issues. </p>
+
+        </div>
+
+        <div id="phase5">
+            <h2>Phase 5: Deployment</h2>
+
+            <p>
+                My project has been pushed to gitlab.
+            </p>
+        </div>
+
+        <div id="phase6">
+            <h2>Phase 6: Maintenance</h2>
+
+            <p>
+                My program is written quite well. I feel that my program isn't too complex and could be understood by just
+                about anyone with any sort of Javascript knowledge.
+            </p>
+            <p>
+                I understand how all the parts of my program work. The complexity in this project is actually quite simple
+                once you begin to understand Javascript.
+            </p>
+            <p>
+                If a bug was reported in a few months, I am very confident I would be able to find the cause very quickly.
+            </p>
+            <p>
+                I believe that my documentation would make sense to myself in six months time and to anyone besides myself
+                who understands Javascript.
+            </p>
+            <p>
+                I would be able to add a new feature very easily to this project in a year because the program is quite
+                simple and Javascript organizes everything quite nicely.
+            </p>
+            <p>
+                My project should continue to work after upgrading my computers hardware, the operating system, and the
+                next versions of Javascript unless there was a major overhaul done on the syntax of Javascript which I
+                wouldn't put past them ;).
+            </p>
+        </div>
+
+    </body>
+
+</html>

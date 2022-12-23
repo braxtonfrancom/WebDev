@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
+    <title>Shrek's Blog</title>
+</head>
+<body>
+
+<div class="homeDisplay">
+    <h1>Shrek's Blog</h1>
+</div>
+
+<ol>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="archive">Archive</a></li>
+    <li><a href="about">About</a></li>
+    <li><a href="techtips+css">Tech Tips - CSS edition</a></li>
+    <li><a href="techtips-css">Tech Tips - No CSS</a></li>
+    <li><a href="plan">Software Development Plan</a></li>
+</ol>
+
+<p>The current time is {{now}}</p>
+
+<div>
+    {% for post in posts %}
+        <p><b><a href="{% url 'blog:entry' post.id %}">Blog post {{post.id}} about {{post | title}} ({{post.comments_set.all.count}} comment{{post.comments_set.all.count | pluralize}})</a></b></p>
+        <p>{{post.author}}</p>
+        <p>{{post.content | truncatewords:100 }}</p>
+        <br>
+    {% endfor %}
+</div>
+
+<div>
+    <h2>Out of things to read??</h2>
+    <p>There is more content for you in the <a href="{% url 'blog:archive' %}" >Archive</a></p>
+</div>
+
+</body>
+</html>

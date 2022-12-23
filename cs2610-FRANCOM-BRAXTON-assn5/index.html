@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://unpkg.com/vue@next"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Vue.js Weather App</title>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		<div v-if="error === undefined" id="weatherApp">
+			<div id="title" class="stuff-box shadowed green">
+				<h1>Vue.js Weather App</h1>
+			</div>
+
+			<div v-if="location === undefined" class="stuff-box shadowed blue">
+				<h3>Your Location</h3>
+				<p>Thank you for your patience while location data is being fetched from the API</p>
+				<div v-if="error !== undefined">There was an error fetching this API request -- {{error}}</div>
+			</div>
+			<div v-if="location !== undefined" id="location" class="stuff-box shadowed blue">
+				<h3>Your Location</h3>
+				<p>You are located in {{location.city.name}}, {{location.region.name}}, {{location.country.name}} at the coordinates ({{location.latitude}}, {{location.longitude}})</p>
+			</div>
+
+			<div v-if="curr === undefined" class="stuff-box shadowed purple">
+				<h3>Current Conditions</h3>
+				<p>Thank you for your patience while weather data is being fetched from the API</p>
+				<div v-if="error !== undefined">There was an error fetching this API request -- {{error}}</div>
+			</div>
+			<div v-if="curr !== undefined" id="weatherData" class="stuff-box shadowed purple">
+				<h3>Current Conditions</h3>
+				<p>Current weather conditions @ {{Date().toLocaleString()}}</p>
+				<ul>
+					<li>Currently {{curr.main.temp}}F</li>
+					<li>High {{curr.main.temp_max}}F</li>
+					<li>Low {{curr.main.temp_min}}F</li>
+					<li>{{curr.weather[0].description}}</li>
+					<li>{{curr.main.humidity}}% humidity</li>
+					<li>{{curr.main.pressure}} hPa pressure</li>
+				</ul>
+			</div>
+
+			<div v-if="forecast === undefined" class="stuff-box shadowed black">
+				<h3>5 day 3-hour forecast</h3>
+				<p>Thank you for your patience while forecast data is being fetched from the API</p>
+				<div v-if="error !== undefined">There was an error fetching this API request -- {{error}}</div>
+			</div>
+			<div v-if="forecast !== undefined" id="forecastDiv" class="stuff-box shadowed black">
+				<h3>5 day 3-hour forecast</h3>
+				<h4>{{unlikely}} unlikely, {{neutral}} neutral, {{likely}} likely</h4>
+				<div v-for="(item, idx) in forecast" 
+					class="stuff-box shadowed yellow"
+					:data-index="idx"
+					@click="forecastToggle">
+					<h4>Conditions for {{item.dt_txt}}</h4>
+					<ul>
+						<li>Temperature {{item.main.temp}}F</li>
+						<li>{{item.weather[0].description}}</li>
+						<li>{{item.main.humidity}}% humidity</li>
+						<li>{{item.main.pressure}} hPa</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script>
+const app = Vue.createApp({
+    data() {
+        return {
+			location: undefined,
+			curr: undefined,
+			forecast: undefined,
+			
+			stateChosenArray: new Array(40).fill('neutral'),
+            error: undefined,
+        };
+    },
+	
+
+	methods: {
+		forecastToggle(event) {
+			let element = event.currentTarget;
+        	let idx = element.getAttribute('data-index');
+        	if (this.stateChosenArray[idx] === 'neutral') {
+            	this.stateChosenArray[idx] = 'likely';
+				element.setAttribute('class', "stuff-box shadowed green")
+        	}
+        	else if (this.stateChosenArray[idx] === 'likely') {
+            	this.stateChosenArray[idx] = 'unlikely';
+				element.setAttribute('class', "stuff-box shadowed red")
+        	}
+        	else if (this.stateChosenArray[idx] === 'unlikely') {
+            	this.stateChosenArray[idx] = 'neutral';
+				element.setAttribute('class', "stuff-box shadowed yellow")
+        	}
+    	},
+
+        // pluralize(n) { return n == 1 ? '' : 's' },
+    },
+
+    computed: {
+        unlikely() {
+            let c = 0;
+            for (let item of this.stateChosenArray) {
+                if (item == "unlikely") {
+                    c++; 
+				}
+            }
+            return c;
+        },
+        neutral() {
+            let c = 0;
+            for (let item of this.stateChosenArray) {
+                if (item == "neutral") {
+                    c++; 
+				}
+            }
+            return c;
+        },
+		likely() {
+			let c = 0;
+			for (let item of this.stateChosenArray) {
+				if (item == 'likely') {
+					c++;
+				}
+			}
+			return c;
+		}
+    },
+
+
+	created() {
+		fetch(`https://api.ipbase.com/v2/info?apikey=53rkA2ekkDbuCr56JNahQQsTypMdoB7FerjsQzly`)
+			.then(r => r.json())
+			.then(json => {
+				console.log(json)
+				this.location = json.data.location
+				return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this.location.latitude}&lon=${this.location.longitude}&units=imperial&appid=992dfaec4f428c99e9bcd0a89ede3dda`)
+			})
+			.then(r => r.json())
+			.then(json => {
+				console.log(json)
+				this.curr = json
+				return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${this.location.latitude}&lon=${this.location.longitude}&units=imperial&appid=992dfaec4f428c99e9bcd0a89ede3dda`)
+			})
+			.then(r => r.json())
+			.then(json => {
+				console.log(json)
+				this.forecast = json.list
+
+		})
+		.catch(err => this.error = err);
+    },
+	
+});
+
+const vm = app.mount('#weatherApp');
+
+		</script>
+
+
+	</body>
+</html>

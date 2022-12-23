@@ -1,0 +1,29 @@
+{% load static %}
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HTTP headers as seen by the server</title>
+		<link href="{% static 'hostname/style.css' %}" rel="stylesheet">
+	</head>
+
+	<body>
+        <div>
+			<div class="stuff-box green shadowed">
+				<h2>HTTP headers as seen by the server</h2>
+				<h3>You are visiting the hostname {{ host }}</h3>
+				<p><a href="{% url 'headers' %}">See HTTP headers in a pretty HTML page </a></p>
+				<p><a href="{% url 'headers_json' %}">Return HTTP headers as JSON</a></p>
+			</div>
+			<div class="stuff-box yellow shadowed">
+				<h2>Visit the same page under different hostnames</h2>
+				<h3>This requires you to find and edit your <code>hosts</code> file to map the domain names <code>dogs.org</code> and <code>cats.com</code> to the IP address <code>127.0.0.1</code></h3>
+				<p><a href="http://localhost:{{port}}/hostname/hostname">localhost:{{port}}</a></p>
+				<p><a href="http://dogs.org:{{port}}/hostname/hostname">dogs.org:{{port}}</a></p>
+				<p><a href="http://cats.com:{{port}}/hostname/hostname">cats.com:{{port}}</a></p>
+			</div>
+        </div>
+
+	</body>
+</html>
+

@@ -1,0 +1,95 @@
+head {
+    background-color: aquamarine;
+
+}
+
+body {
+    background-color: lightblue;
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style:oblique;
+    font-size: 3rem;
+    color: purple;
+}
+
+ul li:nth-child(odd) {
+    background-color: lightseagreen;
+}
+
+
+#htmlelements {
+    background-color: yellowgreen;
+}
+#htmlcharacterentities {
+    background-color: lightsalmon;
+}
+#cssselectors {
+    background-color: lightgreen;
+}
+#cssproperties {
+    background-color: lightcoral;
+}
+
+
+#phase0 {
+    background-color: rgb(244, 178, 154);
+}
+#phase1 {
+    background-color: rgb(192, 190, 78);
+}
+#phase2 {
+    background-color: rgb(109, 127, 167);
+}
+#phase3 {
+    background-color: rgb(224, 101, 214);
+}
+#phase4 {
+    background-color: rgb(245, 217, 59);
+}
+#phase5 {
+    background-color: rgb(248, 8, 52);
+}
+#phase6 {
+    background-color: rgb(255, 132, 1);
+}
+
+
+ol li {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+}
+
+ol {
+    background-color:lightsalmon;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style:oblique;
+    padding: 15px;
+    clip-path: polygon(30% 40%, 090% 0%, 470% 5%, 0% 100%, 0% 5%, 10% 0%);
+}
+
+.myclass {
+    color: darkgreen;
+    font-size:2rem;
+    font-style: italic;
+}
+
+#bytag1 {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+#bytag2 {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+#bytag3 {
+    color: brown;
+    font-size: 1.2rem;
+}
+
+

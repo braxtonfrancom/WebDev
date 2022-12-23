@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Text, numeric and color input examples</title>
+        <style>
+            /* the :invalid pseudo-class selects items which FAIL validation */
+            div.validated input:invalid {
+                background-color: #ffa399;
+            }
+ 
+            /* the :valid pseudo-class selects items which PASS validation */
+            div.validated input:valid {
+                background-color: #a1dda1;
+            }
+
+        </style>
+	</head>
+
+	<body>
+		<form method="GET" action="#">
+			<h2>Text inputs</h2>
+
+            <div class="validated">
+                <ul>
+                    <li>Client-side validation can be enabled by choosing a specific kind of <code>&lt;input&gt;</code></li>
+                    <li>Note: this validation is <em>easily</em> defeated; consider it a convenience, nothing more.</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"><code>&lt;input&gt;</code> on MDN</a></li>
+				</ul>
+
+                <h3>Try these out for size</h3>
+
+				<ul>
+					<li>
+						<input id="plain-text" maxlength="10" name="plain-text" placeholder="Plain text" type="text" />
+						<label for="plain-text">Plain text with a max length of 10</label>
+					</li>
+
+                    <li>
+						<input id="search" name="search" placeholder="Search text input" type="search" />
+						<label for="search">Search input (in equipped browsers) </label>
+					</li>
+
+					<li>
+						<input id="password" name="password" placeholder="Password" type="password" />
+						<label for="password">Password</label>
+					</li>
+
+					<li>
+						<input id="email" name="email" placeholder="Email address" type="email" />
+						<label for="email">Validated email input</label>
+					</li>
+
+					<li>
+						<input id="tel" name="tel" placeholder="Telephone Number" type="tel" />
+						<label for="tel">Validated telephone number (YMMV)</label>
+					</li>
+
+					<li>
+						<input id="url" name="url" placeholder="URL" type="url" />
+						<label for="url">Validated URL</label>
+					</li>
+
+                    <li>
+                        <input id="hidden" name="hidden" value="Harry Potter is a horcrux" type="hidden" />
+                        <label for="hidden">Hidden input (trust me, it's here!)</label>
+                    </li>
+                </ul>
+
+            </div>
+
+			<div>
+				<h3>Post your life story here</h3>
+				<textarea name="life-story" rows="10" cols="80">Tell me your life story, I really care</textarea>
+			</div>
+            <div>
+                <button id="submission" type="submit">Submit</button>
+                <button id="clear" type="reset">Clear these inputs</button>
+            </div>
+        </form>
+
+        <hr />
+
+		<form method="GET" action="#">
+			<h2>Numeric inputs</h2>
+            <div class="validated">
+                <ul>
+                    <li>These <code>&lt;input&gt;</code> elements are constrained to accept only numeric data</li>
+                    <li>Note: this validation is <em>easily</em> defeated; consider it a convenience, nothing more.</li>
+                    <li>Some browsers add UI features to make entering numbers more convenient (e.g. spinners, numeric keyboard)</li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <input id="number" name="number" placeholder="A number from 1 - 100" min="1" max="100" type="number" />
+                        <label for="number">Pick a number between 1 and 100</label>
+                    </li>
+
+                    <li>
+                        <input id="range" name="range" min="1" max="100" type="range" />
+                        <label for="range">Idem., but graphically</label>
+                    </li>
+
+                    <li>
+                        <input id="float" name="float" placeholder="Pick a float from 1.0 to 100.0" step="any" min="1" max="100" type="float" />
+                        <label for="float"> Floating point numbers (and so much more) are allowed here </label>
+                    </li>
+
+                    <li>
+                        <input id="datetime-local" name="datetime-local" type="datetime-local" />
+                        <label for="datetime-local">Date/time picker (in equipped browsers)</label>
+                    </li>
+
+                    <li>
+                        <input id="month" name="month" type="month" />
+                        <label for="month">Month picker (in equipped browsers)</label>
+                    </li>
+
+                    <li>
+                        <input id="time" name="time" type="time" />
+                        <label for="time">Time picker (in equipped browsers)</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <button id="submission" type="submit">Submit</button>
+                <button id="clear" type="reset">Clear these inputs</button>
+            </div>
+		</form>
+
+        <hr />
+
+        <form method="GET" action="#">
+			<h2>Miscellaneous inputs</h2>
+            <div>
+                <ul>
+                    <li>A color picker widget can be summoned by setting an <code>&lt;input&gt;</code> element's <code>type</code> to <code>"color"</code>
+                        <ul>
+                            <li>Its value is expressed as a hexidecimal triplet <code>#RRGGBB</code></li>
+                        </ul>
+                    </li>
+                    <li>A file picker widget is summoned with <code>type="file"</code></li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <input id="color" name="color" type="color" />
+                        <label for="color">Pick any color between <code>#000000</code> and <code>#FFFFFF</code></label>
+                    </li>
+
+                    <li>
+                        <input id="file" name="file" type="file" />
+                        <label for="file">Pick a file, any file!</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <button id="submission" type="submit">Submit</button>
+                <button id="clear" type="reset">Clear these inputs</button>
+            </div>
+		</form>
+	</body>
+</html>

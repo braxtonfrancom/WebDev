@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Fetching data from Nasdaq with fetch()</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta charset="utf-8">
+	</head>
+	<body>
+		<div class="green stuff-box">
+			<h2>Consuming data from a web API with fetch()</h2>
+			<p>This is the URL to Nasdaq's API that this page will query when you click <strong>Fetch!</strong> below:</p>
+
+			<pre class="stuff-box cyan url"></pre>
+
+			<p>
+				You can either visit this URL directly in the browser, or use
+				<code>curl</code> to hit it from the Bash command line. By
+				running it on in the command line you can filter it through
+				a pretty-printer which makes it easy for you to see the
+				structure of the JSON result.
+			</p>
+
+			<p>
+				Note the single quotes around the URL - the URL contains
+				ampersands and question marks, which have special meaning to
+				Bash.  The single quotes make Bash treat them as ordinary text.
+			</p>
+
+			<pre class="stuff-box cyan">curl '<span class="url"></span>' | python -m json.tool</pre>
+
+			<ul>
+				<li> <code>curl</code> is our handy-dandy command-line HTTP tool.  </li>
+				<li> <code>python -m json.tool</code> is a program which pretty-prints JSON data.  </li>
+			</ul>
+		</div>
+
+	   <hr>
+
+
+	   <div class="blue stuff-box">
+		   <h2>Inspect the results of this query in the JavaScript console</h2>
+		   <select id="dataset" class="inline-item" onchange="update_url(this)">
+			   <option value="sentiment">Index of Consumer Sentiment</option>
+			   <option value="s-and-p">S &amp; P Composite</option>
+			   <option value="poptot">UN Global Indicators Population Totals</option>
+			   <option value="slcpop">City Population for SLC</option>
+			   <option value="nycpop"> City Population for NYC</option>
+		   </select>
+		   <button onclick="go_fetch()" class="inline-item" type="button">Fetch!</button>
+		   <p id="nasdaq" class="inline-item" >Awaiting your command...</p>
+	   </div>
+
+	   <hr>
+	   <div class="yellow stuff-box">
+		   <h2>Further reading</h2>
+		   <ul>
+			   <li> <a href="https://docs.data.nasdaq.com/">Nasdaq Data Link API Documentation</a> </li>
+			   <li><a href="https://docs.data.nasdaq.com/docs/in-depth-usage">Time-series Usage</a></li>
+			   <li><a href="https://docs.data.nasdaq.com/docs/parameters-2">Time-series Parameters</a></li>
+			   <li> <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON">MDN JSON</a> </li>
+			   <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">MDN Fetch API</a></li>
+			   <li> <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">MDN Using Fetch</a></li>
+			   <li> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">MDN Promise</a></li>
+			   <li> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">MDN Using Promises</a></li>
+			   <li> <a href="https://javascript.info/promise-chaining">Promises Chaining</a></li>
+		   </ul>
+	   </div>
+	   <script src="script.js"></script>
+	   <script>
+		   document.onload = update_url(document.querySelector('#dataset'));
+	   </script>
+
+	</body>
+</html>

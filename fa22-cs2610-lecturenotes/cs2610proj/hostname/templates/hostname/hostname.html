@@ -1,0 +1,59 @@
+{% load static %}
+<head>
+    <title>
+        {% if "dogs" in host %}
+            Man's best friend
+        {% elif "cats" in host %}
+            Cat's ruel teh wurld
+        {% else %}
+            An ordinary, innocuous web page
+        {% endif %}
+    </title>
+    <style>
+
+        h1 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        {% if "dogs" in host %}
+            body {
+                background-color: brown;
+                color: white;
+            }
+
+        {% elif "cats" in host %}
+            body {
+                background-color: orange;
+                color: black;
+            }
+
+        {% else %}
+            body {
+                background-color: yellow;
+                color: black;
+            }
+
+        {% endif %}
+    </style>
+</head>
+<body>
+
+        {% if "dogs" in host %}
+            <h1>Man's best friend</h1>
+            <div><img src="{% static 'hostname/yesthisisdog.jpg' %}" ></div>
+        {% elif "cats" in host %}
+            <h1>Cat's ruel teh wurld</h1>
+            <div><img src="{% static 'hostname/grumpycat.jpg' %}" ></div>
+        {% else %}
+            <h1>An ordinary, innocuous web page for ordinary, innocuous people</h1>
+            <div><img src="{% static 'hostname/normies.jpg' %}" ></div>
+        {% endif %}
+			<h1><a href="{% url 'index' %}">Back</a></h1>
+
+</body>

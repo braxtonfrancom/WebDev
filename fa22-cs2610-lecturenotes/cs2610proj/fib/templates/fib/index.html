@@ -1,0 +1,29 @@
+{% load static %}
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fibonacci numbers</title>
+		<link href="{% static 'fib/style.css' %}" rel="stylesheet">
+	</head>
+
+	<body>
+        <div>
+            <div class="stuff-box blue shadowed">
+				<h2>Compute the Nth Fibonacci number via our awesome API and <code>fetch()</code></h2>
+                <input type="number" id="fib" name="fib">
+                <button type="button" onclick="calculate()">Calculate</button>
+				<h3 id="result"></h3>
+				<p id="duration"></p>
+            </div>
+			<div id="fibonacci-slider" class="stuff-box red shadowed">
+				<label for="list-slider" id="list-label">Fib(0)</label>
+				<input id="list-slider" type="range" min="0" max="50" value="0" oninput="fiblist(this)">
+			</div>
+			<div> <a href="{% url 'fib:index' %}">Back</a> </div>
+        </div>
+
+		<script type="text/javascript" src="{% static 'fib/script.js' %}"></script>
+	</body>
+</html>
+

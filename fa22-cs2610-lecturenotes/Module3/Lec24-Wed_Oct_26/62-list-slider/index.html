@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<title>Interactive DOM in JavaScript</title>
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<div class="blue stuff-box">
+			<h2>An interactive ordered list</h2>
+			<p>As you move the slider the old &lt;ol&gt; is destroyed and a new one is created to replace it</p>
+			<form>
+				<label for="list-slider" id="list-label">List(0)</label>
+				<input id="list-slider" type="range"
+					min="0" max="100" value="0"
+					onchange="listSlider(this)"
+					>
+			</form>
+
+			<div id="list-parent"></div>
+		</div>
+	</body>
+</html>

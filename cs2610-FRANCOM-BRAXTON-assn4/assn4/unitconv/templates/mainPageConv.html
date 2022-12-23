@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'unitconv/style.css' %}" type="text/css"/>
+    <title>Weight in Gold</title>
+</head>
+<body>
+
+<h2>Usage: http://localhost:8000/unitconv/convert?OPTIONS</h2>
+
+<h3>Each of these OPTIONS must be included in the request:</h3>
+
+<ul>
+    <li>from = T | g | t_oz | kg | lb | oz</li>
+    <li>to = T | g | t_oz | kg | lb | oz</li>
+    <li>value = a floating-point number</li>
+</ul>
+
+</body>
+</html>

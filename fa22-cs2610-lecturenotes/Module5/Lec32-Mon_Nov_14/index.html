@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The minimal, valid HTML5 document</title>
+        <script src="https://unpkg.com/vue@next"></script>
+    </head>
+    <body>
+        <div id="my-app">
+            <h2>{{ title }}</h2>
+            <p>{{ text }}</p>
+			<p v-if="sunny">It's a sunny day today!</p>
+			<p v-else-if="snowing">It is snowing right now!</p>
+			<p v-else-if="raining">It's raining cats and dogs out there!</p>
+			<!-- <p>If you uncomment this paragraph you'll get a Vue warning</p> -->
+			<p v-else>Welp, I'm not quite sure what it is, but I'm sure it's weather</p>
+        </div>
+        <script>
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        title: "This is my Vue App",
+                        text: "My very first application written with Vue.JS.  My mom says she is very proud of me!",
+						sunny: false,
+						snowing: false,
+						raining: true,
+                    };
+                },
+            });
+            
+			const vm = app.mount('#my-app');
+        </script>
+    </body>
+</html>

@@ -1,0 +1,244 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css" />
+        <title>Software Development Plan</title>
+    </head>
+
+    <body>
+
+        <h1>Software Development Plan</h1>
+
+        <ol>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="archive">Archive</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="techtips+css">Tech Tips - CSS edition</a></li>
+            <li><a href="techtips-css">Tech Tips - No CSS</a></li>
+            <li><a href="plan">Software Development Plan</a></li>
+        </ol>
+
+        <p>The current time is {{now}}</p>
+
+        <div id="phase0">
+            <h2>Phase 0: Requirements Specification</h2>
+
+            <p>
+                My goal is to build a fully functional, dynamic Django website. The website will have a homepage, an archive
+                page that will show all of the blog posts, a entry page that will show a specific blog post and will have a
+                form to add a comment to the page, and then I will have my about.html, techtips+css.html, and techtips-css.html
+                pages as well.
+            </p>
+            <p>
+                To be honest, I am pretty unfamiliar with everything. Django is very foreign to me and it is going to be
+                a big learning curve. Obviously, I have already written the HTML and css for some of my webpage, but I
+                have a lot of learning to do in order to be able to understand how to work those into the Django framework.
+            </p>
+        </div>
+
+        <div id="phase1">
+            <h2>Phase 1: System Analysis</h2>
+
+            <p>
+                Some of the data I will be using in this program will be taken from our last assignment. I am going to be using HTML files
+                styled with CSS. I will have a form in one of the HTML files that will POST data to the server. I will want
+                to put this data into our database as well as display it dynamically on our webpage.
+            </p>
+            <p>
+                My output will be a fully functioning, dynamic Django website.
+            </p>
+            <p>
+                There won't be any algorithms or formulae used in this program.
+            </p>
+        </div>
+
+        <div id="phase2">
+            <h2>Phase 2: Design</h2>
+            <ul>
+                <li>
+                    The first step for me is to bring in my about.html, plan.html, techtips+css.html, and techtips-css.html
+                    files and get them converted from static pages to dynamic django pages.
+                </li>
+
+
+                <li>
+                    My next step is to make a blogHome.html, archive.html, and entry.html files. In addition to this, I
+                    need to set up all of my models.py, urls.py, and views.py files. I will break down the functions and
+                    classes that are going to be in these files in the following paragraphs.
+                </li>
+
+
+                <li>
+                    models.py
+                    <ul>
+                        <li>
+                            class Blog(models.Model)
+                                <p>In this class I will need to make several class attributes that will make up a Blog object.
+                                These attributes will be a title_text(models.CharField()), a author(models.CharField()), a
+                                content(models.TextField()) and a posted(models.DateTimeField())</p>
+                                <p>I will also need a method __str__(self) to return a string representation of the Blog object.</p>
+                        </li>
+                        <li>
+                            class Comments(models.Model)
+                                <p>In this class I will need to make several class attributes that will make up a Comments object.
+                                These attributes will be a blog(models.ForeignKey()), a commenter(models.CharField()), a
+                                email(models.EmailField()), a content(models.TextField()) and a posted(models.DateTimeField())</p>
+                                <p>I will also need a method __str__(self) to return a string representation of the Comments object.</p>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    urls.py
+                    <ul>
+                        <li>
+                            In urls.py I actually won't need to make any functions or classes. I will just need to add a
+                            handful of paths() to the urlpatterns[] list so that all of my webpages are accessible.
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    views.py
+                    <ul>
+                        <li>
+                            def blogHome(request):
+                                <p>In this function I will need to create a blogPost variable that will display the first 3
+                                blog posts</p>
+                                <p>I will also need to make a variable to access the comments</p>
+                                <p>Then I will need to return an Http response with appropriate arguments. For my homepage
+                                these will need to be a request, a url, and a dictionary that contains values to map to. I
+                                can foresee me needing a time value, a posts value, and a comments value.</p>
+                        </li>
+                        <li>
+                            def about(request):
+                                <p>In this function I will just need to return an Http response with appropriate arguments.
+                                    For my about page these will need to be a request, a url, and a dictionary that contains
+                                    values to map to. I think all I will need for this one is a time value to make the page
+                                    dynamic.
+                                </p>
+                        </li>
+                        <li>
+                            def archive(request):
+                            <p>In this function I will need to create a blogPost variable that will display all of the
+                                blog posts</p>
+                                <p>Then I will need to return an Http response with appropriate arguments. For my archive page
+                                these will need to be a request, a url, and a dictionary that contains values to map to. I
+                                can foresee me needing a time value, and a posts value.</p>
+                        </li>
+                        <li>
+                            def entry(request, blogEntry_id):
+                                <p>In this function I will need to create a blogPost variable that will display the blog post
+                                that was clicked on</p>
+                                <p>I will also need to make a variable to access the comments</p>
+                                <p>Then I will need to return an Http response with appropriate arguments. For my entry page
+                                these will need to be a request, a url, and a dictionary that contains values to map to. I
+                                can foresee me needing a time value, a posts value, and a comments value.</p>
+                                <p>I will also need to somehow access the data from the POST that my entry.html form will
+                                    make. I don't quite have a good approach for this yet, but I am sure that as I become
+                                    more familiar with Django I will find a way to do this. The new comment will then be
+                                    posted at the bottom of the page with the rest of them. </p>
+                        </li>
+                        <li>
+                            def plan(request):
+                                <p>In this function I will just need to return an Http response with appropriate arguments.
+                                    For my plan page these will need to be a request, a url, and a dictionary that contains
+                                    values to map to. I think all I will need for this one is a time value.
+                                </p>
+                        </li>
+                        <li>
+                            def techTipsWithCss(request):
+                                <p>In this function I will just need to return an Http response with appropriate arguments.
+                                    For my techTipsWithCss page these will need to be a request, a url, and a dictionary that contains
+                                    values to map to. I think all I will need for this one is a time value to make the page
+                                    dynamic.
+                                </p>
+                        </li>
+                        <li>
+                            def techTipsNoCss(request):
+                                <p>In this function I will just need to return an Http response with appropriate arguments.
+                                    For my techTipsNoCss page these will need to be a request, a url, and a dictionary that contains
+                                    values to map to. I think all I will need for this one is a time value.
+                                </p>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="phase3">
+            <h2>Phase 3: Implementation</h2>
+
+            <p>
+                I implemented all of the above code to create a functional Django website.
+            </p>
+            <p>
+                I learned that Django is a very powerful tool. I also learned that it has some pretty unique organization
+                and syntax. It can be quite tricky at times figuring those things out but this project helped
+                me to develop a lot more confidence in my ability to use Django.
+            </p>
+        </div>
+
+        <div id="phase4">
+            <h2>Phase 4: Testing and Debugging</h2>
+
+            <h4>Test Case: I put 4 blogs into the system using http://127.0.0.1:8000/admin by hitting new Blog and then
+            typing in the information it asks for.</h4>
+            <p>My website only displayed the 3 most recent blog posts on my homepage and all 4 of them on my archive page.</p>
+
+            <h4>Test Case: I added another comment to one of the blogs using http://127.0.0.1:8000/admin by hitting new
+            comment button and arbitrarily typing in the information it asks for.</h4>
+            <p>The number of comments on that particular blog post was updated on the bottom of the entry
+            page, the homepage, and the archive page.</p>
+
+            <h4>Test Case: I put 4 comments on one blog post into the system using http://127.0.0.1:8000/admin by hitting new
+            comment button and arbitrarily typing in the information it asks for.</h4>
+            <p>My website displayed all of the comments in order from newest to oldest order.</p>
+
+        </div>
+
+        <div id="phase5">
+            <h2>Phase 5: Deployment</h2>
+
+            <p>
+                My project has been pushed to gitlab.
+            </p>
+        </div>
+
+        <div id="phase6">
+            <h2>Phase 6: Maintenance</h2>
+            
+            <p>
+                My program is written quite well. I feel that my program became simpler as I coded because I started to
+                more fully understand how Django works. Django is an awesome framework that makes the development of web
+                apps pretty awesome once you understand how it all works together.
+            </p>
+            <p>
+                I understand how all the parts of my program work. The complexity in this project is actually quite simple
+                once you understand the flow in Django.
+            </p>
+            <p>
+                If a bug was reported in a few months, I am very confident I would be able to find the cause very quickly.
+            </p>
+            <p>
+                I believe that my documentation would make sense to myself in six months time and to anyone besides myself
+                who understands Django due to the use of Django in this project.
+            </p>
+            <p>
+                I would be able to add a new feature very easily to this project in a year because the layout of Django
+                makes it easy to organize everything.
+            </p>
+            <p>
+                My project should continue to work after upgrading my computers hardware, the operating system, and the
+                next versions of Python or Django unless there was a major overhaul done on the syntax of Django.
+            </p>
+        </div>
+        
+    </body>
+
+</html>    

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://unpkg.com/vue@next"></script>
+        <title>Vue.js TODO list</title>
+        <meta charset="utf-8">
+        <style>
+            .done {
+                text-decoration: line-through;
+                color: gray;
+            }
+
+            .todo {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <div>
+                <div v-if="remaining != 0">
+                    <h2>Vue.js TODO list</h2>
+                    <p>
+                        I've completed {{completed}} item{{pluralize(completed)}}
+                        and have {{remaining}} item{{pluralize(remaining)}} remaining.
+                    </p>
+                    <ol>
+                        <li v-for="(item, idx) in todos"
+                            :class="{done: item.done, todo: !item.done}"
+                            :data-index="idx"
+                            @click="toggle"
+                            >{{item.task}}</li>
+                    </ol>
+                </div>
+                <div v-else>
+                    <h2>All done!!!</h2>
+                    <h3>Time to celebrate with some Orange Dreamsicles</h3>
+                </div>
+            </div>
+        </div>
+
+        <script>
+const app = Vue.createApp({
+    data() {
+        return {
+            todos: [
+                {done: true,  task: "Learn Javascript"},
+                {done: false, task: "Learn Vue.js"},
+                {done: false, task: "Get my money out of FTX"},
+                {done: false, task: "Render TODO items from a JavaScript Array"},
+                {done: false, task: 'Strike-through "done" items'},
+                {done: false, task: 'Mark items "done" by clicking'},
+                {done: false, task: 'Lurn to spel'},
+                {done: false, task: 'Store the TODO list in the cloud'},
+                {done: false, task: 'Get some Orange Dreamsicles'},
+            ],
+        };
+    },
+    methods: {
+        toggle(ev) {
+            let ele = ev.currentTarget;
+            let i = ele.getAttribute('data-index');
+            this.todos[i].done = !this.todos[i].done;
+        },
+        pluralize(n) { return n == 1 ? '' : 's' },
+    },
+    computed: {
+        completed() {
+            let c = 0;
+            for (let item of this.todos) {
+                if (item.done) {
+                    c++;
+                }
+            }
+            return c;
+        },
+        remaining() {
+            let c = 0;
+            for (let item of this.todos) {
+                if (!item.done) {
+                    c++;
+                }
+            }
+            return c;
+        },
+    },
+});
+
+const vm = app.mount('#app');
+        </script>
+    </body>
+</html>
+<!-- vim: set ts=4 expandtab: -->

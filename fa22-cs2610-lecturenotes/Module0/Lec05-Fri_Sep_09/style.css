@@ -1,0 +1,31 @@
+/* CSS comments look like this */
+h1 {
+	color: blue;
+	background-color: yellow;
+	border: 1px solid black;
+	padding: 2mm;
+}
+
+.urgent {
+	color: red;
+	font-weight: bold;
+}
+
+h1 {
+	/* last one wins */
+	color: orange;
+	background-color: blue;
+}
+
+p {
+	color: red;
+}
+
+.greenie {
+	color: black;
+	background-color: forestgreen;
+}
+
+body {
+	background-color: wheat;
+}

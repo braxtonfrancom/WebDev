@@ -1,0 +1,123 @@
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border-radius: 10px;
+		border-style: solid;
+		border-color: #0288d1;
+		background-color: lightblue;
+	}
+
+
+	form div {
+		border-radius: 10px;
+		border-color: darkgray;
+		border-style: solid;
+		background-color: lightgray;
+		font-size: larger;
+		margin: 10px;
+		padding: 5px;
+
+	}
+
+	form div input {
+		font-size: large;
+	}
+
+	form button {
+		font-size: large;
+	}
+</style>
+
+
+<script>
+	var dosubmit = function(button) {
+		if (button === document.querySelector('#get')) {
+			var method="GET";
+		}
+		else {
+			var method="POST";
+		}
+		console.log(`dosubmit(${method})`);
+
+		let form = document.querySelector('form');
+		form.method = method;
+		form.submit();
+	}
+</script>
+
+
+<form>
+	<div>
+		<label for="text1">A piece of data to send to the server</label>
+		<input id="text1" name="text1" type="text" placeholder="Well, go on now" >
+	</div>
+
+
+	<div>
+		<label for="text2">A piece of data to send to the server</label>
+		<input id="text2" name="text2" type="text" placeholder="You know what to do ;)" >
+	</div>
+
+	<div>
+		<button id="get"  type="button" onclick="dosubmit(this)">GET!</button>
+		<button id="post" type="button" onclick="dosubmit(this)">POST!</button>
+	</div>
+	<!-- This is needed for POST to work -->
+	{% csrf_token %}
+</form>
+
+
+
+
+<h2>HTTP Method = {{ method }}</h2>
+
+{% if POST or GET %}
+
+	{% if POST %}
+		<h3>POST data</h3>
+		<ul>
+			{% for key, value in POST.items %}
+			<li> {{key}}: {{value}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+
+	{% if GET %}
+		<h3>GET data</h3>
+		<ul>
+			{% for key, value in GET.items %}
+			<li> {{key}}: {{value}}</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<hr>
+{% endif %}
+
+
+{% if HEADERS %}
+	<h2>HTTP Headers</h2>
+	<ul>
+		{% for key, value in HEADERS.items %}
+		<li> {{key}}: {{value}}</li>
+		{% endfor %}
+	</ul>
+	<hr>
+{% endif %}
+
+
+
+{% if COOKIES %}
+	<h2>HTTP Cookies</h2>
+	<ul>
+		{% for key, value in COOKIES.items %}
+		<li> {{key}}: {{value}}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+
+
+<h1><a href="{% url 'index' %}">Back</a></h1>

@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<title>Vue.js Character Sheet</title>
+		<meta charset="utf-8">
+
+		<!-- The latest development version of Vue, which includes helpful console warnings -->
+		<script src="https://unpkg.com/vue@next"></script>
+
+
+		<!-- https://getbootstrap.com/docs/4.0/utilities/colors/ -->
+		<link rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+			crossorigin="anonymous">
+	</head>
+
+
+	<body>
+		<div id="character-sheet">
+
+			<!-- a soothing, reassuring loading image -->
+
+			<h2 v-if="character && character.error">Error: [% character.error %]</h2>
+			<h2 v-else-if="character && character.first">[% character.first %] [% character.last %] ([% characterGender %])</h2>
+			<div v-else class="col-sm">
+				<img src="{% static 'charactersheet/loading0.gif' %}" >
+				<p class="text-center">Rolling for a name...</p>
+			</div>
+
+
+			<!-- Character Attributes -->
+			<div v-if="attribs && attribs.error">Error: [% attribs.error %]</div>
+			<div v-else-if="attribs" class="row">
+				<div v-for="attrib in attribs.attrs" class="col-sm text-capitalize"> <strong>[% attrib[0] %]:</strong> [% attrib[1] %] </div>
+			</div>
+			<div v-else>
+				<img src="{% static 'charactersheet/loading2.gif' %}" >
+				<p class="text-center">Rolling for attributes...</p>
+			</div>
+
+
+			<!-- Character Staistics -->
+			<div class="container border border-primary rounded">
+				<div v-if="stats">
+					<div class="row">
+						<h4 class="col-sm"><strong>HP:</strong> [% hitpoints %]</h4>
+						<h4 class="col-sm"><strong>MP:</strong> [% magicpoints %]</h4>
+						<h4 class="col-sm"><strong>CP:</strong> [% cleverpoints %]</h4>
+					</div>
+					<table class="table">
+						<thead>
+							<td>Strength</td>
+							<td>Constitution</td>
+							<td>Dextexity</td>
+							<td>Intelligence</td>
+							<td>Wisdom</td>
+							<td>Charisma</td>
+						</thead>
+						<tr>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.str--">-</span> [% stats.str %] <span style="padding: 5px" class="text-white bg-success" @click="stats.str++">+</span></td>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.con--">-</span> [% stats.con %] <span style="padding: 5px" class="text-white bg-success" @click="stats.con++">+</span></td>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.dex--">-</span> [% stats.dex %] <span style="padding: 5px" class="text-white bg-success" @click="stats.dex++">+</span></td>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.int--">-</span> [% stats.int %] <span style="padding: 5px" class="text-white bg-success" @click="stats.int++">+</span></td>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.wis--">-</span> [% stats.wis %] <span style="padding: 5px" class="text-white bg-success" @click="stats.wis++">+</span></td>
+							<td><span style="padding: 5px; cursor: pointer" class="text-white bg-danger" @click="stats.chr--">-</span> [% stats.chr %] <span style="padding: 5px" class="text-white bg-success" @click="stats.chr++">+</span></td>
+						</tr>
+					</table>
+				</div>
+				<!-- a soothing, reassuring loading image -->
+				<div v-else class="col-sm">
+					<img src="{% static 'charactersheet/loading1.gif' %}" >
+					<p class="text-center">Rolling for stats...</p>
+				</div>
+			</div>
+		</div>
+
+
+		<script src="{% static 'charactersheet/characterSheet.js' %}"></script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
+    <title>Entry</title>
+</head>
+<body>
+
+<h1>Blog post {{entry.id}} about {{entry.title_text | title }}</h1>
+<h2>Author: {{entry.author}}</h2>
+
+<ol>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/blog/archive">Archive</a></li>
+    <li><a href="/blog/about">About</a></li>
+    <li><a href="/blog/techtips+css">Tech Tips - CSS edition</a></li>
+    <li><a href="/blog/techtips-css">Tech Tips - No CSS</a></li>
+    <li><a href="/blog/plan">Software Development Plan</a></li>
+</ol>
+
+<p>The current time is {{now}}</p>
+
+<p>{{entry.content}}</p>
+<br>
+<h3>Thoughts? We'd love to hear from you!</h3>
+
+
+<form action="{% url 'blog:entry'  entry.id %}" method="post">
+{% csrf_token %}
+
+<fieldset>
+    <p>Your name: <input type="text" name="commenter" id="commenter"></p>
+    <p>Your email address: <input type="email" name="email" id="email"></p>
+
+    <textarea cols="50" rows="10" name="content" id="content" placeholder="Rant here..."></textarea>
+</fieldset>
+<input type="submit" value="Post Comment">
+</form>
+
+
+<h2>{{comments | length}} Comment{{comments | length | pluralize}}</h2>
+{% for i in comments %}
+    <p><b>{{i.commenter}} ({{i.email}})</b> said this at {{i.posted}}</p>
+    <p>{{i.content}}</p>
+{% endfor %}
+
+</body>
+</html>
+
+

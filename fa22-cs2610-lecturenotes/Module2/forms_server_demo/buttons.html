@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Button, button, who's got the button?</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<form method="GET" action="#">
+			<h2>Check these boxes out!</h2>
+
+			<div>
+				<ul>
+					<li>Checkbox buttons are created with the <code>&lt;input&gt;</code> element with the <code>type</code> attribute set to <code>checkbox</code></li>
+					<li>An individual checkbox is tied to a label by its <code>id</code> attribute</li>
+					<li>A checkbox is identified by the server through its <code>value</code> attribute</li>
+					<li>A group of related checkboxes share the same <code>name</code> attribute</li>
+					<li>You can pre-select a checkbox with the <code>checked</code> attribute</li>
+				</ul>
+
+				<h3>What <em>are</em> your favorite social media platforms?</h3>
+				<ul>
+					<li>
+						<input id="c-facebook" value="facebook" name="social" type="checkbox" />
+						<label for="c-facebook">Facebook</label>
+					</li>
+
+					<li>
+						<input id="c-tiktok" value="tiktok" name="social" type="checkbox" />
+						<label for="c-tiktok">TikTok</label>
+					</li>
+
+					<li>
+						<input id="c-instagram" value="instagram" name="social" type="checkbox" />
+						<label for="c-instagram">Instagram</label>
+					</li>
+
+					<li>
+						<input id="c-twitter" value="twitter" name="social" type="checkbox" />
+						<label for="c-twitter">Twitter</label>
+					</li>
+
+					<li>
+						<input id="c-twitch" value="twitch" name="social" type="checkbox" />
+						<label for="c-twitch">Twitch</label>
+					</li>
+
+					<li>
+						<input id="c-touch-grass" value="touch-grass" name="social" type="checkbox" checked />
+						<label for="c-touch-grass">N/A; I like to do real things in the real world</label>
+					</li>
+				</ul>
+
+				<div>
+					<button id="submission" type="submit">Submit</button>
+					<button id="clear" type="reset">Clear these checkboxes</button>
+				</div>
+			</div>
+		</form>
+
+		<hr />
+
+		<form method="GET" action="#">
+			<h2>Now you're really pushing my buttons!</h2>
+
+			<div>
+				<ul>
+					<li>Radio buttons are created with the <code>&lt;input&gt;</code> element with the <code>type</code> attribute set to <code>radio</code></li>
+					<li>An individual radio button is tied to a label by its <code>id</code> attribute</li>
+					<li>A radio button is identified by the server through its <code>value</code> attribute</li>
+					<li>A group of related radio buttons share the same <code>name</code> attribute</li>
+					<li>Only one radio button in the group may be selected at a time</li>
+					<li>You can pre-select a radio button with the <code>checked</code> attribute</li>
+				</ul>
+
+				<h3>What <em>is</em> your favorite social media platform?</h3>
+				<ul>
+					<li>
+						<input id="r-facebook" value="facebook" name="social" type="radio" />
+						<label for="r-facebook">Facebook</label>
+					</li>
+
+					<li>
+						<input id="r-tiktok" value="tiktok" name="social" type="radio" />
+						<label for="r-tiktok">TikTok</label>
+					</li>
+
+					<li>
+						<input id="r-instagram" value="instagram" name="social" type="radio" />
+						<label for="r-instagram">Instagram</label>
+					</li>
+
+					<li>
+						<input id="r-twitter" value="twitter" name="social" type="radio" />
+						<label for="r-twitter">Twitter</label>
+					</li>
+
+					<li>
+						<input id="r-twitch" value="twitch" name="social" type="radio" />
+						<label for="r-twitch">Twitch</label>
+					</li>
+
+					<li>
+						<input id="r-touch-grass" value="touch-grass" name="social" type="radio" checked />
+						<label for="r-touch-grass">N/A; I like to do real things in the real world</label>
+					</li>
+				</ul>
+
+				<div>
+					<button id="submission" type="submit">Submit</button>
+					<button id="clear" type="reset">Reset these radio buttons</button>
+				</div>
+			</div>
+		</form>
+
+		<hr />
+
+		<div>
+			<h2>Now you're really pushing my buttons!</h2>
+
+			<div>
+				<ul>
+					<li>Actual buttons are created with the <code>&lt;button&gt;</code> element</li>
+					<li>There are three kinds of buttons:
+						<ol>
+							<li>Submit buttons (the default kind), which <em>submit</em> a <code>&lt;form&gt;</code> when inside one, and are useless otherwise</li>
+							<li>Reset buttons, which <em>reset</em> inputs within their <code>&lt;form&gt;</code>, and are useless otherwise</li>
+							<li>"Button" buttons, which are useless until you learn how to use <em>JavaScript</em></li>
+						</ol>
+					</li>
+				</ul>
+
+				<h3>What is your favorite social media platform?</h3>
+				<ul>
+					<li>
+						<button type="">Facebook</button>
+					</li>
+
+					<li>
+						<button type="">TikTok</button>
+					</li>
+
+					<li>
+						<button type="">Instagram</button>
+					</li>
+
+					<li>
+						<button type="">Twitter</button>
+					</li>
+
+					<li>
+						<button type="">Twitch</button>
+					</li>
+
+					<li>
+						<button type="">N/A; I like to do real things in the real world</button>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</body>
+</html>

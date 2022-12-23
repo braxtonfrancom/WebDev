@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" type="text/css" />
+        <title>Software Development Plan</title>
+    </head>
+
+    <body>
+
+        <h1>Software Development Plan</h1>
+
+        <div id="phase0">
+            <h2>Phase 0: Requirements Specification</h2>
+
+            <p>
+                My goal is to build a webpage that will be able to tell someone the dollar value of a weight in gold. I also 
+                would like to have my website be able to convert between different units of conversion including lbs, oz, troy oz, 
+                grams, kilagrams, and U.S. Tons.
+            </p>
+            <p>
+                I haven't worked much with Javascript but I am actually really excited to become more familiar with it
+                because it is so common. I think the biggest challenge that I forsee is figuring out what to do in HTML and what to 
+                do in Javascript. I feel like I could do most things in either but I am not sure what is the ideal way to approach
+                individual tasks.
+            </p>
+        </div>
+
+        <div id="phase1">
+            <h2>Phase 1: System Analysis</h2>
+
+            <p>
+                I will be taking in a number input and the user will select a unit of conversion from a dropdown menu. I will need to limit the input to numbers, otherwise I will run into
+                errors trying to perform operations on said input. I will then need to appropriately convert the the units into whatever the user requested.
+            </p>
+            <p>
+                My output will be the dollar amount of the weight entered in gold based on the current gold value.
+            </p>
+            <p>
+                There really won't be any algorithms or formulae used in this program. The only 'algorithms' of sorts will
+                be the simple conversion factors used in this program.
+            </p>
+        </div>
+
+        <div id="phase2">
+            <h2>Phase 2: Design</h2>
+            <ul>
+                <li>
+                    gold app:
+                </li>
+                    <ul>
+                        <li>
+                            This app will be done mostly in a javascript script. I will make the base layout using DOM manipulation.
+                            There will br two fetch() calls. One before the button is clicked to get the price of gold from an
+                            API. The other will be called once the button is clicked. This one will call my unit conversion API
+                            to convert the selected units to troy ounces. When the '=' button is clicked, it will call the followiong function:  
+                        </li>
+                        <li>
+                            convert()--> This function will make a fetch() to my unit conversion API. It will get the weight in troy ounces
+                            which we can multiply with the current price of gold. We will then display this calculated value in a new div 
+                            that we add to the DOM.  
+                        </li>
+                    </ul>
+
+                <li>
+                    unitconv app:
+                </li>
+                    <ul>
+                        <li>
+                            This app will have very minimalist HTML body. The work for this app will be done in views in a function called
+                            convert().
+                        </li>
+                        <li>
+                            convert(request)--> This function will take a request in. After ensuring that it contains all the necessary pieces
+                            I will calculate a value based on the values contained within the request. It will be something like
+                            float(value) / from * to. This will give us the value of the converted number. I wll then return the value of the
+                            converted number and the units we are converting to in a JsonResponse.
+                        </li>
+                    </ul>
+            </ul>
+        </div>
+
+        <div id="phase3">
+            <h2>Phase 3: Implementation</h2>
+
+            <p>
+                I implemented all of the above code and more to create a functional webpage that can perform the above described operations.
+            </p>
+            <p>
+                I learned once again that Javascript is a very powerful tool. I also learned that it's syntax can be decieving at times. 
+                It can be quite tricky at times figuring those things out but this project helped me to develop a lot more confidence in my
+                ability to use Javascript as well as become more comfortable working with URL's.
+            </p>
+        </div>
+
+        <div id="phase4">
+            <h2>Phase 4: Testing and Debugging</h2>
+
+            <h4>Test Case: I tested putting 4 U.S Tons into the gold app by typing 4 into the input box and selecting U.S Tons from the dropdown menu.</h4>
+            <p>Result: A new div appeared at the very top beneath the main div. It displayed 'At Fri Nov 11 2022 19:26:14 GMT-0700 (Mountain Standard Time),
+                 4 tons of gold is worth $205,887,585.79'. This was the expected output. </p>
+
+            <h4>Test Case: I typed 'http://localhost:8000/unitconv/convert?from=g&to=lb&value=76' into my browser. </h4>
+            <p>Result: The webpage returned the following JSON object: {"units": "lb", "value": 0.16755039706780697}. This is the expected
+                output.
+            </p>
+
+            <h4>Test Case: I pressed the '=' button on the gold app without entering a value into the input box.</h4>
+            <p>Result: A new div appeared at the very top beneath the main div. It displayed 'Fri Nov 11 2022 19:35:59 GMT-0700 (Mountain Standard Time) You didn't enter anything man!'</p>
+
+        </div>
+
+        <div id="phase5">
+            <h2>Phase 5: Deployment</h2>
+
+            <p>
+                My project has been pushed to gitlab.
+            </p>
+        </div>
+
+        <div id="phase6">
+            <h2>Phase 6: Maintenance</h2>
+
+            <p>
+                My program is written quite well. I feel that my program isn't too complex and could be understood by just
+                about anyone with any sort of Javascript knowledge. They would need to have some knowledge about API's, fetch()
+                requests, GET requests, etc. to understand what is going on behind the scenes.
+            </p>
+            <p>
+                I understand how all the parts of my program work. It took me some time to understand how all of the pieces work
+                together but it actually isnt too bad once you understand how it all fits together.
+            </p>
+            <p>
+                If a bug was reported in a few months, I am very confident I would be able to find the cause very quickly and would
+                be able to solve it quite quickly.
+            </p>
+            <p>
+                I believe that my documentation would make sense to myself in six months time and to just about anyone besides myself
+                who understands Javascript as well as has a basic understanding of fetch() requests, API's and other general knowledge
+                for a web developer.
+            </p>
+            <p>
+                I would be able to add a new feature very easily to this project in a year because the program isn't too complex.
+            </p>
+            <p>
+                My project should continue to work after upgrading my computers hardware, the operating system, and the
+                next versions of Javascript, HTML and CSS unless there was a major overhaul done on the syntax of Javascript or something
+                crazy like that which I would highly doubt because that would cause a lot more issues than messing up my two-page website.
+            </p>
+        </div>
+
+    </body>
+
+</html>

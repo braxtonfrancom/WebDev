@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>A Ducky search form</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<form method="GET" action="https://duckduckgo.com">
+			<h2>DuckDuckGo Search</h2>
+
+			<div>
+				<label for="ddg-search">Search Term</label>
+				<input id="ddg-search" name="q" type="search" placeholder="Enter your search term" />
+
+				<label for="user">Username</label>
+				<input id="user" name="username" type="text" placeholder="Enter your username" />
+
+				<label for="pass">Password</label>
+				<input id="pass" name="password" type="password" placeholder="Share your secrets with me!" />
+
+				<div>
+					<button id="submission" type="submit">Search on DuckDuckGo</button>
+					<button id="clear" type="reset">Clear these fields</button>
+				</div>
+			</div>
+		</form>
+
+		<hr />
+
+		<form method="POST" action="/do-post">
+			<h2>This form is going straight back to my cool server.</h2>
+			<div>
+				<ol>
+					<li>What happens to this form if I submit it like this?</li>
+					<li>What attributes on the <code>&lt;form&gt;</code> must I add to make this form do something else?</li>
+				</ol>
+			</div>
+			<div>
+				<label for="my-textinput">This is the label for <em> Erik </em>'s password input</label>
+				<input id="my-textinput" name="Erik" type="password" value="iloveyou"/>
+			</div>
+
+			<div>
+				<label for="my-othertextinput">This is the label for <em> Nancy </em>'s text input</label>
+				<input id="my-othertextinput" name="Nancy" type="search"/>
+			</div>
+
+			<div>
+				<button type="submit"> Submit This Form </button>
+			</div>
+		</form>
+
+	</body>
+</html>

@@ -1,0 +1,64 @@
+/* CSS comments look like this */
+
+#huge {
+    font-size: 72pt;
+    background-color: red;
+    color: orange
+}
+
+#smaller {
+    font-size: 6pt;
+    background-color: red;
+    color: orange;
+}
+
+.urgent {
+	color: red;
+	font-weight: bold;
+}
+
+.greenie {
+	color: black;
+	background-color: forestgreen;
+}
+
+div {
+    background-color: springgreen;
+}
+
+ol {
+    background-color: lemonchiffon;
+}
+
+ol > li:nth-child(odd) {
+    background-color: peachpuff;
+}
+
+ul {
+    background-color: lightskyblue;
+}
+
+ul > li:nth-child(even) {
+    background-color: deepskyblue;
+}
+
+article.biggie p {
+    font-size: 26px;
+}
+
+
+
+h1 {
+	border: 1px solid black;
+	padding: 2mm;
+    color: orange;
+    background-color: blue;
+}
+
+p {
+	color: red;
+}
+
+body {
+	background-color: wheat;
+}

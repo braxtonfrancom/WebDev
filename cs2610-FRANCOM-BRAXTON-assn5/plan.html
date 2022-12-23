@@ -1,0 +1,160 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css" />
+        <title>Software Development Plan</title>
+    </head>
+
+    <body>
+
+        <h1>Software Development Plan</h1>
+
+        <div id="phase0">
+            <h2>Phase 0: Requirements Specification</h2>
+
+            <p>
+                My goal is to build a fully functional weather app using Vue.js as a framework.
+            </p>
+            <p>
+                I am excited to work with Vue.js. I have heard a lot of good things about it. I think the biggest challenge for me in this
+                assignment will be learning how Vue.js works. Once I figure that out, I don't think the implementation of the rest of the 
+                assinment will be that difficult.
+            </p>
+        </div>
+
+        <div id="phase1">
+            <h2>Phase 1: System Analysis</h2>
+
+            <p>
+                I will be using multiple API's to get data relating to the weather and forecast. This data will be returned as a json object.
+            </p>
+            <p>
+                My output will be a webpage that displays all of the information I extract from the json objects.
+            </p>
+            <p>
+                There really won't be any algorithms or formulae used in this program. The program will mostly be fetch() calls and then accessing
+                the data in the json objects that those fetch()'s return.
+            </p>
+        </div>
+
+        <div id="phase2">
+            <h2>Phase 2: Design</h2>
+            <ul>
+                <li>
+                    I will have a script.js, index.html, and style.css page.
+                </li>
+
+                <li>
+                    script.js
+                    <ul>
+                        <li>
+                            I am going to leave this file blank. For this project, I found it more convienient to have my script inline in index.html
+                        </li>
+                    </ul>
+                    index.html
+                    <ul>
+                        <li>
+                            In index.html I am going to have a basic html layout with dynamic Vue data inserted throughout. The individual divs in this
+                            layout will be conditionally rendered using Vue directives. 
+                        </li>
+                        <br>
+                        <li>
+                            In my Vue.createApp() I will have the following four sections: 
+                        </li>
+                        <li>
+                            1. data() - In here I will define any data that will need to be passed into the html body as a dynamic element. Some of this data
+                            will be json objects that will come from API calls. I will also have a "error" data element that I will set to undefined. If an error
+                            develops while the API fetch() calls, the error message will be printed to the screen because of conditionals I will have in my html
+                            layout that check to see if error === undefined.
+                        </li>
+                        <li>
+                            2. methods() - I think I will only need one method in here. It it will be a method that takes in an event(such as a click). It will then
+                            look at the current state of the div that was just clicked and determine the color that it needs to be changed to.
+                        </li>
+                        <li>
+                            3. computed() - Here, I will have three methods. The three methods will be nearly identical. They will be unlikely(), likely(), and neutral().
+                            Their job will be to keep the count of the repective states of all the forty divs.
+                        </li>
+                        <li>
+                            4. created() - Everything in here will be automatically called when the app is created. In here I will have three API calls. The first will be
+                            to get the current location of the person using the website. The second will use that location to get the current weather for that location, and 
+                            the third will be to get the forecast for the next five days for that location. I will promise chain these API calls so that I can catch errors simply
+                            and efficiently.
+                        </li>
+                    </ul>
+                    style.css
+                    <ul>
+                        <li>
+                            My stylesheet will have basic css selectors that will style my weather app.
+                        </li>
+                    </ul>
+
+                </li>
+            </ul>
+        </div>
+
+        <div id="phase3">
+            <h2>Phase 3: Implementation</h2>
+            <p>
+                I implemented all of the above code to create a functional weather single-page web application.
+            </p>
+            <p>
+                I learned that Vue.js is a very functional framework. Once you learn how it works, it's implementation is actually
+                pretty simple. It can be very powerful and can make dynamic webpages simple.
+            </p>
+        </div>
+
+        <div id="phase4">
+            <h2>Phase 4: Testing and Debugging</h2>
+
+            <h4>Test Case: I loaded the webpage as normal by opening a browser window to http://127.0.0.1:5500/index.html</h4>
+            <p>Result: The webpage loaded with the correct location, date, time, and weather information.</p>
+
+            <h4>Test Case: I tried clicking on of the 40 divs in the 5 day 3-hour forecast.</h4>
+            <p>Result: The div changed color each time I clicked it and the numbers that keep counts were updated correctly.</p>
+
+        </div>
+
+        <div id="phase5">
+            <h2>Phase 5: Deployment</h2>
+
+            <p>
+                My project has been pushed to gitlab.
+            </p>
+        </div>
+
+        <div id="phase6">
+            <h2>Phase 6: Maintenance</h2>
+
+            <p>
+                My program is written quite well. I think that anyone who is familiar with HTML, CSS, and a basic knowledge of
+                frameworks would be able to understand this project.
+            </p>
+            <p>
+                I understand how all the parts of my program work. Vue.js is not a very complicated framework. It is powerful, but
+                simple.
+            </p>
+            <p>
+                If a bug was reported in a few months, I am very confident I would be able to find the cause very quickly.
+            </p>
+            <p>
+                I believe that my documentation would make sense to myself in six months time and to anyone else who understands
+                Javascript, HTML, and CSS
+            </p>
+            <p>
+                I would be able to add a new feature very easily to this project in a year because the program is quite
+                simple due to the use of Vue.js.
+            </p>
+            <p>
+                My project should continue to work after upgrading my computers hardware, the operating system, and the
+                next versions of Javascript, or Vue.js.
+            </p>
+        </div>
+
+    </body>
+
+</html>

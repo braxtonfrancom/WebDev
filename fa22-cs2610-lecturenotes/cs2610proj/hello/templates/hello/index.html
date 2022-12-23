@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>How I shall take over the world!</title>
+		<link rel="stylesheet" href="{% static 'hello/style.css' %}" >
+    </head>
+    <body>
+        <div class="red stuff-box">
+			<h1>Welcome to {{hostname}}!!!</h1>
+            <h2>Soon, you shall be mine!</h2>
+            <p>This site outlines my plan for total world domination as of {{now}}</p>
+        </div>
+
+        <div class="blue stuff-box">
+            <p> Here are the steps:</p>
+            <ol>
+                <li>Get my #hashtags trending on all the socials</li>
+                <li>Gather their personal information</li>
+                <li>sell them out for $$$</li>
+                <li>???</li>
+                <li>Profit!</li>
+            </ol>
+        </div>
+
+        <div class="yellow stuff-box">
+            <p>And there is nothing you can do to stop me!</p>
+			{% verbatim %}
+			<p>This is a django variable {{ variable }}, brought to you by {% verbatim %} </p>
+			{% endverbatim %}
+        </div>
+
+		<div class="green stuff-box">
+			<p>Here are a few of my favorite words:</p>
+			<p>{{lorem | title | truncatewords:10 }}</p>
+
+			{% if numbers %}
+			<p>Here {{numbers | pluralize:"is,are"}} {{numbers | length}} number{{numbers | pluralize}}:</p>
+			<ul>
+				{% for n in numbers %}
+				<li>{{n}}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+
+        <div class="white stuff-box">
+            <p>Do you want a <a href="highFive">high five</a>?</p>
+        </div>
+    </body>
+</html>
+

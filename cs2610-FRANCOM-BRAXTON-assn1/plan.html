@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <title>Software Development Plan</title>
+    </head>
+
+    <body>
+
+        <h1>Software Development Plan</h1>
+
+        <ol>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="techtips+css.html">Tech Tips - CSS edition</a></li>
+            <li><a href="techtips-css.html">Tech Tips - No CSS</a></li>
+            <li><a href="plan.html">Software Development Plan</a></li>
+        </ol>
+
+        <div id="phase0">
+            <h2>Phase 0: Requirements Specification</h2>
+
+            <p>
+                My goal is to build a fully functional HTTP server. It will be able to interpret HTTP requests and form
+                valid responses. It will also be able to use HTTP status codes to control the browser and redirect
+                requests to different resources as well as be able to send custom response headers. In addition to these
+                requirements, I would like my server to be able to serve HTML, CSS, and image files and properly display
+                them. Lastly, I would like my server to be able to serve dynamically-generated pages, and gracefully
+                handle client caused errors.
+            </p>
+            <p>
+                To be honest, I am pretty unfamiliar with everything. Obviously, I have already written my HTML and CSS
+                webpages so I am quite familiar with that aspect of the project, but I have a lot of learning to do in
+                order to be able to understand how I am going to serve these webpages to my server.
+            </p>
+        </div>
+
+        <div id="phase1">
+            <h2>Phase 1: System Analysis</h2>
+
+            <p>
+                The data in this program will be taken from our last assignment. We are going to be using HTML, CSS, and
+                JPEG files. We will 'serve' these files onto the server which will have to be able to properly handle all
+                of the different formats.
+            </p>
+            <p>
+                My output will be a fully functioning HTTP server. It will properly load all of the pages and navigate
+                around the site effectively. It will be able to smoothly handle both correct and incorrect searches in the 'search
+                bar'.
+            </p>
+            <p>
+                There won't be any algorithms or formulae used in this program.
+            </p>
+        </div>
+
+        <div id="phase2">
+            <h2>Phase 2: Design</h2>
+            <ul>
+                <li>
+                    do_GET(self):
+                        <p>This function will inspect self.path and then respond in the correct manner.</p>
+                        <br>
+                        <p>To do this, I will have if/elif/else statements that will inspect self.path and respond accordingly.</p>
+                        <br>
+                        <p>There will be no parameters passed into the function besides self</p>
+                        <br>
+                        <p>In the case of good input: The function will go to the correct if/elif statement and will send
+                            the appropriate headers.</p>
+                        <p>In the case of bad input: The function will default to the else statmetn and will return a 404
+                            Not Found error.</p>
+                </li>
+
+
+                <li>
+                    openFile(self, string(string)):
+                        <p>This function will take a string file name into it. It will then read that file and then close
+                            the file. At this point I will send a Content-Length header by taking the length of the opened
+                            file. Then I will need to end headers and then write this opened file to the server.</p>
+                        <br>
+                        <p>To do this I will need to use open(), read(), close(), and then use self.send_header,
+                            self.end_headers(), and self.wfile.write() </p>
+                        <br>
+                        <p>The only parameter passed into the function will be a string. This string is a filename that I
+                            will use in open()</p>
+                        <br>
+                        <p>In the case of good input: The function will take the string which is a file name and open
+                            it. It will then send extract some information(Content-length) and send it as a header. Then
+                            the opened file will be served.</p>
+                        <p>In the case of bad input: The bad input will never reach this point because if it is an invalid
+                            file name, openFile() will never be called. It is only called when there is a valid filename
+                            given.</p>
+                </li>
+
+
+                <li>
+                    sendHeaders(self, contentType(string), statusCode(string)):
+                        <p>This function will send the appropriate headers when a html request is given. It will determine
+                            which headers need to be sent based on the statusCode.</p>
+                        <br>
+                        <p>I will have several if/elif statements that send different status responses</p>
+                        <p>Then I will have several self.send_header's that all send unique headers</p>
+                        <br>
+                        <p>The contentType parameter will be used when sending the Content-Type header. This will determine
+                            if the file is a jpeg, html, css, etc.</p>
+                        <br>
+                        <p>In the case of good input: The function will send the appropriate headers.</p>
+                        <p>In the case of bad input: The function will hit the else statement which will send a 404 code. This will handle
+                            all invalid input.</p>
+                </li>
+
+            </ul>
+        </div>
+
+        <div id="phase3">
+            <h2>Phase 3: Implementation</h2>
+
+            <p>
+                I implemented all of the above functions and other code to create a functional server.
+            </p>
+            <p>
+                I learned that formatting is very important when sending headers. This frustrated me for quite some time
+                until I realized the just of how formatting works and then it was quite easy.
+            </p>
+        </div>
+
+        <div id="phase4">
+            <h2>Phase 4: Testing and Debugging</h2>
+
+            <h4>Test Case: about</h4>
+            <p>I typed "localhost:8000/about" in the search bar.</p>
+            <p>I got the expected results. It gave a 301 redirect and then smoothly proceeded to /about.html.</p>
+
+            <h4>Test Case: debugging.html</h4>
+            <p>I typed "localhost:8000/debugging.html" in the search bar.</p>
+            <p>I got the results I expected. It gave a 200 OK code and then opened /debugging.</p>
+
+            <h4>Test Case: teapot</h4>
+            <p>I typed "localhost:8000/teapot" in the search bar.</p>
+            <p>I got the expected results. It gave a 418 I'm a teapot and then smoothly proceeded to /teapot.</p>
+
+            <h4>Test Case: tips</h4>
+            <p>I typed "localhost:8000/tips" in the search bar.</p>
+            <p>I got the expected results. It gave a 301 redirect and then smoothly proceeded to /techtips-css.html.</p>
+        </div>
+
+        <div id="phase5">
+            <h2>Phase 5: Deployment</h2>
+
+            <p>
+                My project has been pushed to gitlab.
+            </p>
+        </div>
+
+        <div id="phase6">
+            <h2>Phase 6: Maintenance</h2>
+            
+            <p>
+                My program is written quite well. I feel that my program became simpler as I coded becasue I was able to
+                condense a lot of the code into functions. This made the code for my server very short with lots of
+                function calls.
+            </p>
+            <p>
+                I understand how all the parts of my program work. The complexity in this project is simplified quite a
+                bit by the use of functions.
+            </p>
+            <p>
+                If a bug was reported in a few months, I am very confident I would be able to find the cause very quickly.
+            </p>
+            <p>
+                I believe that my documentation would make sense to myself in six months time and to anyone besides myself
+                due to the use of functions for this project.
+            </p>
+            <p>
+                I would be able to add a new feature very easily to this project in a year because the layout of the
+                project is quite simple with the use of functions.
+            </p>
+            <p>
+                My project should continue to work after upgrading my computers hardware, the operating system, and the
+                next versions of Python or web browser unless there was a major overhaul done on the syntax of the
+                http.server library.
+            </p>
+        </div>
+        
+    </body>
+
+</html>    

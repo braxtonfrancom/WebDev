@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}" type="text/css"/>
+        <title>Tech Tips - CSS edition</title>
+    </head>
+
+    <body>
+        
+        <h1>Tech Tips - CSS edition</h1>
+
+        <ol>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="archive">Archive</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="techtips+css">Tech Tips - CSS edition</a></li>
+            <li><a href="techtips-css">Tech Tips - No CSS</a></li>
+            <li><a href="plan">Software Development Plan</a></li>
+        </ol>
+
+        <p>The current time is {{now}}</p>
+
+        <div id="htmlelements">
+            <h2>0. HTML Elements</h2>
+            
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a></p>
+                <ul>
+                    <li>Name: html</li>
+                    <li>Purpose: This is the HTML root element. It must be unique on every document</li>
+                    <li>Display: N/A</li>
+                </ul>
+
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"><code>&lt;code&gt;</code></a></p>
+                <ul>
+                    <li>Name: code</li>
+                    <li>Purpose: Displays it's contents in a monospace font that resembles computer code </li>
+                    <li>Display: Inline</li>
+                </ul>
+
+                <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a></p>
+                <ul>
+                    <li>Name: img</li>
+                    <li>Purpose: Embeds an image into the document </li>
+                    <li>Display: Inline(by default)</li>
+                </ul>
+        </div>
+        
+
+        <div id="htmlcharacterentities">
+            <h2>1. HTML Character Entities</h2>
+                <p>
+                    <code>&amp;lt</code>
+                </p>
+                    <ul>
+                        <li>Name: &lt; (less-than)</li>
+                        <li>Purpose: Expresses a relationship between two objects and states that the first object is less than the second</li>
+                        <li>Entity Number: &amp;#60</li>
+                    </ul>
+
+                    <p>
+                        <code>&amp;gt</code>
+                    </p>
+                        <ul>
+                            <li>Name: &gt; (greater-than)</li>
+                            <li>Purpose: Expresses a relationship between two objects and states that the first object is greater than the second</li>
+                            <li>Entity Number: &amp;#62</li>
+                        </ul>  
+                        
+                    <p>
+                        <code>&amp;amp</code>
+                    </p>
+                    <ul>
+                        <li>Name: &amp; (ampersand)</li>
+                        <li>Purpose: Represents 'and'</li>
+                        <li>Entity Number: &amp;#38</li>
+                    </ul>    
+        </div>
+
+
+
+
+        <div id="cssselectors">
+            <h2>2. CSS Selectors</h2>
+
+            <p>
+                <code>element</code>
+            </p>
+                <ul>
+                    <li>Name: element</li>
+                    <li>HTML feature this selector finds: Elements</li>
+                    <li>Example: this could select all &lt;p&gt; elements</li>
+                </ul>
+
+            <p>
+                <code>.class</code>
+            </p>
+                <ul>
+                    <li>Name: .class</li>
+                    <li>HTML feature this selector finds: Classes</li>
+                    <li>Example: .intro selects all elements with class="intro"</li>
+                </ul>
+
+            <p>
+                <code>#id</code>
+            </p>
+                <ul>
+                    <li>Name: #id</li>
+                    <li>HTML feature this selector finds: ID's</li>
+                    <li>Example: #mystyle selects the element with id="mystyle"</li>
+                </ul>
+
+            <p>
+                <code>:nth-child</code>
+            </p>
+                <ul>
+                    <li>Name: nth-child</li>
+                    <li>HTML feature this selector finds: The child of whatever element is typed before ':nth-child'</li>
+                    <li>Example: 'p:nth-child(2)' selects every &lt;p&gt; element that is the second child of its parent</li>
+                </ul>
+        </div>
+
+
+
+
+        <div id="cssproperties">
+            <h2>3. CSS Properties</h2>
+            <p>
+                <code>background-color:</code>
+            </p>
+                <ul>
+                    <li>Name: background-color: </li>
+                    <li>Purpose: Allows you to change the color of an element's background</li>
+                    <li>Possible values to take: background-color:purple, background-color:lightskyblue</li>
+                </ul>
+
+            <p>
+                <code>font-style:</code>
+            </p>    
+                <ul>
+                    <li>Name: font-style</li>
+                    <li>Purpose: Defines the font style for the text</li>
+                    <li>Possible values to take: font-style:italic, font-style:normal</li>
+                </ul>
+
+            <p>
+                <code>font-size:</code>
+            </p>    
+                <ul>
+                    <li>Name: font-size</li>
+                    <li>Purpose: Defines the font size for the text</li>
+                    <li>Possible values to take: font-size:3rem, font-size:25px </li>
+                </ul>
+
+        </div>
+
+    </body>
+</html>

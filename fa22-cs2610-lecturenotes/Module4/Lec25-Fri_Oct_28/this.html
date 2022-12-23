@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>U can't touch these DOM elements!</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript">
+            function divClick(domElement) {
+				console.log(`this is ${this}`);
+                alert(`The <${domElement.localName}> says it's Hammer Time!`);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="clicky" onclick="divClick(this)" class="blue stuff-box">
+            <h2 onclick="divClick(this)" class="cyan stuff-box">U can't touch <code>this</code> (DOM Element)!</h2>
+            <ul onclick="divClick(this)" class="magenta stuff-box">
+                <li onclick="divClick(this)" class="white stuff-box">My, my, my, my</li>
+                <li onclick="divClick(this)" class="white stuff-box">Music hits me so hard</li>
+                <li onclick="divClick(this)" class="white stuff-box">(That it) makes me say "Oh, my Lord:</li>
+                <li onclick="divClick(this)" class="white stuff-box">Thank you for blessing me</li>
+                <li onclick="divClick(this)" class="white stuff-box">With a mind to rhyme and two hyped feet".</li>
+                <li onclick="divClick(this)" class="white stuff-box">It feels good when you know you're down,</li>
+                <li onclick="divClick(this)" class="white stuff-box">A superdope homeboy from the Oaktown.</li>
+                <li onclick="divClick(this)" class="white stuff-box">And I'm known as such.</li>
+                <li onclick="divClick(this)" class="white stuff-box">And this is a beat, uh, you can't touch.</li>
+                <li onclick="divClick(this)" class="white stuff-box">I told you, homeboy: Can't touch this.</li>
+                <li onclick="divClick(this)" class="white stuff-box">Yeah, that's how we livin', and ya know: Can't touch this.</li>
+                <li onclick="divClick(this)" class="white stuff-box">Look in my eyes, man: Can't touch this.</li>
+                <li onclick="divClick(this)" class="white stuff-box">Yo! Let me bust the funky lyrics.</li>
+            </ul>
+        </div>
+    </body>
+</html>
+

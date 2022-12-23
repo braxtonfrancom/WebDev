@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<link rel="stylesheet" href="style.css" type="text/css">
+        <title>U can't touch these DOM elements!</title>
+        <script type="text/javascript">
+            function divClickThis(domElement) {
+                alert(`The <${domElement.localName}> says it's Hammer Time!`);
+            }
+
+            function divClickEvent(event) {
+				if (event.currentTarget === event.target)
+					alert(`The <${event.currentTarget.localName}> was touched by button ${event.button}!`);
+				else
+					alert(`The <${event.currentTarget.localName}> was touched by button ${event.button}, all because of <${event.target.localName}>!`);
+
+				// event.stopPropagation();
+            }
+        </script>
+    </head>
+    <body onclick="divClickThis(this)" class="cyan stuff-box">
+        <div id="clicky" onclick="divClickThis(this)" class="blue stuff-box">
+            <h2 id="hello-world" class="magenta stuff-box">U can't touch <em>this</em>!</h2>
+            <ul onclick="divClickThis(this)" class="magenta stuff-box">
+                <li onclick="divClickThis(this)" class="white stuff-box">My, my, my, my</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">Music hits me so hard</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">(That it) makes me say "Oh, my Lord:</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">Thank you for blessing me</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">With a mind to rhyme and two hyped feet".</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">It feels good when you know you're down,</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">A superdope homeboy from the Oaktown.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">And I'm known as such.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">And this is a beat, uh, you can't touch.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">I told you, homeboy: Can't touch this.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">Yeah, that's how we livin', and ya know: Can't touch this.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">Look in my eyes, man: Can't touch this.</li>
+                <li onclick="divClickThis(this)" class="white stuff-box">Yo! Let me bust the funky lyrics.</li>
+            </ul>
+        </div>
+
+		<div id="clicky" onclick="divClickEvent(event)" class="blue stuff-box">
+			<h2 onclick="divClickEvent(event)" class="magenta stuff-box">The main <em>event</em></h2>
+            <ul onclick="divClickEvent(event)" class="magenta stuff-box">
+                <li onclick="divClickEvent(event)" class="white stuff-box">My, my, my, my</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">Music hits me so hard</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">(That it) makes me say "Oh, my Lord:</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">Thank you for blessing me</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">With a mind to rhyme and two hyped feet".</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">It feels good when you know you're down,</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">A superdope homeboy from the Oaktown.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">And I'm known as such.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">And this is a beat, uh, you can't touch.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">I told you, homeboy: Can't touch this.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">Yeah, that's how we livin', and ya know: Can't touch this.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">Look in my eyes, man: Can't touch this.</li>
+                <li onclick="divClickEvent(event)" class="white stuff-box">Yo! Let me bust the funky lyrics.</li>
+            </ul>
+        </div>
+
+		<script>
+				var helloDiv = document.querySelector('#hello-world');
+
+				for (let i = 0; i < 1000; ++i) {
+					helloDiv.addEventListener('click', function (event) {
+						console.log(`Hello Clicky World #${i}!`);
+						alert(`Hello Clicky World #${i}!`);
+					});
+				}
+
+			/*
+				for (let i = 0; i < 1000; ++i) {
+					helloDiv.addEventListener('mouseover', function (event) {
+						console.log(`Hello Hovering World #${i}!`);
+						alert(`Hello Hovering World #${i}!`);
+					});
+				}
+			*/
+		</script>
+    </body>
+</html>
