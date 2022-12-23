@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Tech Tips - No CSS</title>
+    </head>
+
+    <body style="background-color: lightblue; margin-left: 3rem; margin-right: 3rem;">
+
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 3rem; font-style: oblique; color: purple;">Tech Tips - No CSS</h1>
+
+        <ol style="background-color: lightsalmon; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique; padding: 15px;">
+            <li style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique;"><a href="index.html">Blog</a></li>
+            <li style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique;"><a href="about.html">About</a></li>
+            <li style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique;"><a href="techtips+css.html">Tech Tips - CSS edition</a></li>
+            <li style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-style: oblique;"><a href="techtips-css.html">Tech Tips - No CSS</a></li>
+        </ol>
+
+        <div style="background-color: yellowgreen;">
+            <h2>0. HTML Elements</h2>
+            
+                <p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"><code>&lt;html&gt;</code></a> <!--USE ESCAPE KEYS HERE and make it a hyperlink-->
+                </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: html</li>
+                    <li>Purpose: This is the HTML root element. It must be unique on every document</li>
+                    <li style="background-color:lightseagreen">Display: N/A</li>
+                </ul>
+
+                <p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"><code>&lt;code&gt;</code></a>
+                </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: code</li>
+                    <li>Purpose: Displays it's contents in a monospace font that resembles computer code </li>
+                    <li style="background-color:lightseagreen">Display: Inline</li>
+                </ul>
+
+                <p>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"><code>&lt;img&gt;</code></a>
+                </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: img</li>
+                    <li>Purpose: Embeds an image into the document </li>
+                    <li style="background-color:lightseagreen">Display: Inline(by default)</li>
+                </ul>
+        </div>
+        
+
+
+        <div style="background-color: lightsalmon;">
+            <h2>1. HTML Character Entities</h2>
+                <p>
+                    <code>&amp;lt;</code>
+                </p>
+                    <ul>
+                        <li style="background-color:lightseagreen">Name: &lt; (less-than)</li>
+                        <li>Purpose: Expresses a relationship between two objects and states that the first object is less than the second</li>
+                        <li style="background-color:lightseagreen">Entity Number: &amp;#60</li>
+                    </ul>
+
+                <p>
+                    <code>&amp;gt;</code>
+                </p>
+                    <ul>
+                        <li style="background-color:lightseagreen">Name: &gt; (greater-than)</li>
+                        <li>Purpose: Expresses a relationship between two objects and states that the first object is greater than the second</li>
+                        <li style="background-color:lightseagreen">Entity Number: &amp;#62</li>
+                    </ul>
+
+                <p>
+                    <code>&amp;amp;</code>
+                </p>
+                    <ul>
+                        <li style="background-color:lightseagreen">Name: &amp; (ampersand)</li>
+                        <li>Purpose: Represents 'and'</li>
+                        <li style="background-color:lightseagreen">Entity Number: &amp;#38</li>
+                    </ul>    
+        </div>
+
+
+
+
+        <div style="background-color: lightgreen;">
+            <h2>2. CSS Selectors</h2>
+
+            <p>
+                <code>element</code>
+            </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: element</li>
+                    <li>HTML feature this selector finds: Elements</li>
+                    <li style="background-color:lightseagreen">Example: this could select all &lt;p&gt; elements</li>
+                </ul>
+
+            <p>
+                <code>.class</code>
+            </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: .class</li>
+                    <li>HTML feature this selector finds: Classes</li>
+                    <li style="background-color:lightseagreen">Example: .intro selects all elements with class="intro"</li>
+                </ul>
+
+            <p>
+                <code>#id</code>
+            </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: #id</li>
+                    <li>HTML feature this selector finds: ID's</li>
+                    <li style="background-color:lightseagreen">Example: #mystyle selects the element with id="mystyle"</li>
+                </ul>
+
+            <p>
+                <code>:nth-child</code>
+            </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: nth-child</li>
+                    <li>HTML feature this selector finds: The child of whatever element is typed before ':nth-child'</li>
+                    <li style="background-color:lightseagreen">Example: 'p:nth-child(2)' selects every &lt;p&gt; element that is the second child of its parent</li>
+                </ul>
+        </div>
+
+
+
+
+        <div style="background-color: lightcoral;">
+            <h2>3. CSS Properties</h2>
+            <p>
+                <code>background-color:</code>
+            </p>
+                <ul>
+                    <li style="background-color:lightseagreen">Name: background-color: </li>
+                    <li>Purpose: Allows you to change the color of an element's background</li>
+                    <li style="background-color:lightseagreen">Possible values to take: background-color:purple, background-color:lightskyblue</li>
+                </ul>
+
+            <p>
+                <code>font-style:</code>
+            </p>    
+                <ul>
+                    <li style="background-color:lightseagreen">Name: font-style</li>
+                    <li>Purpose: Defines the font style for the text</li>
+                    <li style="background-color:lightseagreen">Possible values to take: font-style:italic, font-style:normal</li>
+                </ul>
+
+            <p>
+                <code>font-size:</code>
+            </p>    
+                <ul>
+                    <li style="background-color:lightseagreen">Name: font-size</li>
+                    <li>Purpose: Defines the font size for the text</li>
+                    <li style="background-color:lightseagreen">Possible values to take: font-size:3rem, font-size:25px </li>
+                </ul>
+
+        </div>
+    </body>
+</html>
