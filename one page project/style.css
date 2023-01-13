@@ -313,10 +313,10 @@ p {
 }
 #services .service-bottom {
     display: flex;
-    align-items: center;
     justify-content: center;
+    /* align-items: center; */
     flex-wrap: wrap;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 #services .service-item {
     flex-basis: 80%;
@@ -326,9 +326,9 @@ p {
     flex-direction: column;
     padding: 30px;
     border-radius: 10px;
-    background-image: url(img/singletrack.jpeg);
+    background-color: lightcoral;
     background-size: cover;
-    margin: 10px 5%;
+    /* margin: 10px 5%; */
     overflow: hidden;
 }
 #services .service-item::after {
@@ -508,7 +508,7 @@ p {
     border-radius: 10px;
     padding: 30px;
     margin: 30px;
-    display: flex;
+    display: wrap;
     justify-content: center;
     align-items: center;
     flex-direction: column;
